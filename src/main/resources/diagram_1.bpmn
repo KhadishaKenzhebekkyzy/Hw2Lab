@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1khvt2c" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.8.1" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="Process_1ccx65w" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1j6yn3b</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1j6yn3b" sourceRef="StartEvent_1" targetRef="movieInformation" />
+    <bpmn:sequenceFlow id="Flow_01voqwl" sourceRef="movieInformation" targetRef="Activity_1i50o3c" />
+    <bpmn:endEvent id="Event_0rzhebb">
+      <bpmn:incoming>Flow_06mi52n</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_06mi52n" sourceRef="Activity_1i50o3c" targetRef="Event_0rzhebb" />
+    <bpmn:serviceTask id="movieInformation" name="Movie Information" camunda:delegateExpression="MovieInformation">
+      <bpmn:incoming>Flow_1j6yn3b</bpmn:incoming>
+      <bpmn:outgoing>Flow_01voqwl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1i50o3c" name="Information about the movie">
+      <bpmn:incoming>Flow_01voqwl</bpmn:incoming>
+      <bpmn:outgoing>Flow_06mi52n</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1ccx65w">
+      <bpmndi:BPMNEdge id="Flow_1j6yn3b_di" bpmnElement="Flow_1j6yn3b">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="270" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01voqwl_di" bpmnElement="Flow_01voqwl">
+        <di:waypoint x="370" y="117" />
+        <di:waypoint x="410" y="117" />
+        <di:waypoint x="410" y="230" />
+        <di:waypoint x="440" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06mi52n_di" bpmnElement="Flow_06mi52n">
+        <di:waypoint x="540" y="230" />
+        <di:waypoint x="612" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0rzhebb_di" bpmnElement="Event_0rzhebb">
+        <dc:Bounds x="612" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14zhbz9_di" bpmnElement="movieInformation">
+        <dc:Bounds x="270" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zzghth_di" bpmnElement="Activity_1i50o3c">
+        <dc:Bounds x="440" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
